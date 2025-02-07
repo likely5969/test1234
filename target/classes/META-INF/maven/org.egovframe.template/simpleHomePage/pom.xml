@@ -549,13 +549,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <minmemory>128m</minmemory>
-                    <maxmemory>512m</maxmemory>
-                    <encoding>${encoding}</encoding>
-                    <docencoding>${encoding}</docencoding>
-                    <charset>${encoding}</charset>
-                </configuration>
+                 <version>3.8.1</version> <!-- 최신 안정 버전으로 변경 -->
+				    <configuration>
+				        <source>17</source> <!-- 사용하는 JDK 버전에 맞게 수정 -->
+				        <target>17</target>
+				    </configuration>
             </plugin>
             <!-- Generating Java Source in HTML -->
             <plugin>
