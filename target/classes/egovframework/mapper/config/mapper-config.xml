@@ -15,6 +15,8 @@
  		<typeAlias alias="FileVO"			type="egovframework.com.cmm.service.FileVO" />
 		<typeAlias alias="ComDefaultCodeVO" type="egovframework.com.cmm.ComDefaultCodeVO" />
 		<typeAlias alias="comDefaultVO"		type="egovframework.com.cmm.ComDefaultVO" />
+				<typeAlias alias="egovMap"		type="egovframework.com.cmm.ComDefaultVO" />
+		
 	</typeAliases>
     
 </configuration>

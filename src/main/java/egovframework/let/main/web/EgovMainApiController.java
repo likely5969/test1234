@@ -55,7 +55,7 @@ public class EgovMainApiController {
 	 */
 	@Operation(
 			summary = "메인 페이지",
-			description = "템플릿 메인 페이지 조회",
+			description = "템플릿 메인 페이지 조회             ",
 			tags = {"EgovMainApiController"}
 	)
 	@ApiResponses(value = {
