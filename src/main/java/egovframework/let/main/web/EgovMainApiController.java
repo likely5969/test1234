@@ -97,5 +97,42 @@ public class EgovMainApiController {
 
 		return resultVO;
 	}
+	
+	@GetMapping(value = "/testPage")
+	public ResultVO getTestPage()
+	  throws Exception{
+
+		ResultVO resultVO = new ResultVO();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+		// 공지사항 메인 컨텐츠 조회 시작 ---------------------------------
+		BoardVO boardVO = new BoardVO();
+		boardVO.setPageUnit(5);
+		boardVO.setPageSize(10);
+		boardVO.setBbsId("BBSMSTR_AAAAAAAAAAAA");
+
+		PaginationInfo paginationInfo = new PaginationInfo();
+
+		paginationInfo.setCurrentPageNo(boardVO.getPageIndex());
+		paginationInfo.setRecordCountPerPage(boardVO.getPageUnit());
+		paginationInfo.setPageSize(boardVO.getPageSize());
+
+		boardVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		boardVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		boardVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+
+		Map<String, Object> map = bbsMngService.selectBoardArticles(boardVO, "BBSA02");
+		resultMap.put("notiList", map.get("resultList"));
+
+		boardVO.setBbsId("BBSMSTR_BBBBBBBBBBBB");
+		map = bbsMngService.selectBoardArticles(boardVO, "BBSA02");
+		resultMap.put("galList", map.get("resultList"));
+
+		resultVO.setResult(resultMap);
+		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
+		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
+
+		return resultVO;
+	}
 
 }
